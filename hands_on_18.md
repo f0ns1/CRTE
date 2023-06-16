@@ -11,7 +11,7 @@ Abuse the Unconstrained Delegation on us-web to get Enterprise Admin privileges 
 ## Unconstrained Delegation
 
 Access to US-WEB with webmaster credentials privileges:
-
+createonly
 ```
 Microsoft Windows [Version 10.0.17763.3650]
 (c) 2018 Microsoft Corporation. All rights reserved.

