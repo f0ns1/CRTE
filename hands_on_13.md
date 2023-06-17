@@ -449,6 +449,47 @@ PS C:\Windows\system32> Set-ADComputer -Identity us-helpdesk -PrincipalsAllowedT
 VERBOSE: Performing the operation "Set" on target "CN=US-HELPDESK,CN=Computers,DC=us,DC=techcorp,DC=local".
 ```
 
+```
+Get-ADComputer -Filter * -Properties TrustedForDelegation, TrustedToAuthForDelegation,msDS-AllowedToDelegateTo,PrincipalsAllowedToDelegateToAccount | select name, TrustedForDelegation, TrustedToAuthForDelegation,msDS-AllowedToDelegateTo,PrincipalsAllowedToDelegateToAccount | FT
+
+name         TrustedForDelegation TrustedToAuthForDelegation msDS-AllowedToDelegateTo                         PrincipalsAllowedToDelegateToAccount
+----         -------------------- -------------------------- ------------------------                         ------------------------------------
+US-DC                        True                      False {}                                               {}
+US-EXCHANGE                 False                      False {}                                               {}
+US-MGMT                     False                      False {cifs/US-MSSQL.us.techcorp.local, cifs/US-MSSQL} {}
+US-HELPDESK                 False                      False {}                                               {CN=STUDENT12,OU=Students,DC=us,DC=techcorp,DC=local}
+US-MSSQL                    False                      False {}                                               {}
+US-MAILMGMT                 False                      False {}                                               {}
+US-JUMP                     False                      False {}                                               {}
+US-WEB                       True                      False {}                                               {}
+US-ADCONNECT                False                      False {}                                               {}
+STUDENT11                   False                      False {}                                               {}
+STUDENT12                   False                      False {}                                               {}
+STUDENT13                   False                      False {}                                               {}
+STUDENT14                   False                      False {}                                               {}
+STUDENT15                   False                      False {}                                               {}
+STUDENT16                   False                      False {}                                               {}
+STUDENT17                   False                      False {}                                               {}
+STUDENT18                   False                      False {}                                               {}
+STUDENT19                   False                      False {}                                               {}
+STUDENT20                   False                      False {}                                               {}
+STUDENT21                   False                      False {}                                               {}
+STUDENT22                   False                      False {}                                               {}
+STUDENT23                   False                      False {}                                               {}
+STUDENT24                   False                      False {}                                               {}
+STUDENT25                   False                      False {}                                               {}
+STUDENT26                   False                      False {}                                               {}
+STUDENT27                   False                      False {}                                               {}
+STUDENT28                   False                      False {}                                               {}
+STUDENT29                   False                      False {}                                               {}
+STUDENT30                   False                      False {}                                               {}
+STUDENT1                    False                      False {}                                               {}
+
+
+```
+
+
+
 ## Extract Secrets
 Extract machine studentuser17 hash of system user [SID S-1-5-18]:
 ```
