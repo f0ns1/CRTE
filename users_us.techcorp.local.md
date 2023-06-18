@@ -16,12 +16,13 @@ RID  : 000001f6 (502)
 User : krbtgt
 LM   :
 NTLM : b0975ae49f441adc6b024ad238935af5
+/aes256:5e3d2096abb01469a3b0350962b0c65cedbbc611c5eac6f3ef6fc1ffa58cacd5
 
 RID  : 00000458 (1112)
 User : emptest
 LM   :
 NTLM : 216fa4d07d30bdf282443cf7241abb8b
-
+600
 RID  : 0000045a (1114)
 User : adconnect
 LM   :
